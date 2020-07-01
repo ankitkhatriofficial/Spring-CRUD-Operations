@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+    
+<hibernate-configuration>
+	<session-factory>
+	
+		<!-- Setup JDBC Environment -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&amp;serverTimezone=UTC</property>
+		<property name="connection.username">hbstudent</property>
+		<property name="connection.password">hbstudent</property>
+		
+		<!-- Connection Pool Settings -->
+	    <property name="minPoolSize">5</property>
+	    <property name="maxPoolSize">20</property>
+	    <property name="maxIdleTime">30000</property>
+			
+		<!-- Select our MySQL Dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		
+		<!-- Echo the SQL to stdout -->
+		<property name="show_sql">true</property>
+		
+		<!-- Using DDL Command -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- Set the Current Session context -->
+		<property name="current_session_context_class">thread</property>
+		
+		<mapping class="com.SpringCRUD.CRUDOperations.entity.Customer"/>
+		
+	</session-factory>
+</hibernate-configuration>
